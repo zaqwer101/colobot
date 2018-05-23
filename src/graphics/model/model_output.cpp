@@ -328,7 +328,10 @@ void ModelOutput::WriteOldModel(const CModel& model, std::ostream &stream)
         t.material.ambient = triangle.ambient;
         t.material.diffuse = triangle.diffuse;
         t.material.specular = triangle.specular;
-        strncpy(t.texName, triangle.tex1Name.c_str(), 20);
+        
+	// Заплатка
+	strncpy(t.texName, triangle.tex1Name.c_str(), triangle.tex1Name.length());
+
         t.min = 0.0f;
         t.max = 1000000.0f;
         t.state = ConvertToOldState(triangle);

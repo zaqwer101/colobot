@@ -81,7 +81,11 @@ void CScreenIO::IOReadName()
 
     time(&now);
     strftime(line, 99, "%y.%m.%d %H:%M", localtime(&now));
-    sprintf(name, "%s - %s %d", line, resume.c_str(), m_main->GetLevelRank());
+    
+    // Заплатка
+    //sprintf(name, "%s - %s %d", line, resume.c_str(), m_main->GetLevelRank());
+    strncpy(name, "Obkekalsya", 20);
+
 
     pe->SetText(name);
     pe->SetCursor(strlen(name), 0);
